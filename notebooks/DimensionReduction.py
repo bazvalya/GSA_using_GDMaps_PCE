@@ -1,3 +1,6 @@
+# The following code is adapted for UQpy==4.0.5 from 
+# https://github.com/katiana22/GDM-PCE/blob/main/data/DimensionReduction.py
+
 # UQpy is distributed under the MIT license.
 #
 # Copyright (C) 2018  -- Michael D. Shields
@@ -306,10 +309,10 @@ class Grassmann:
                 for i in range(nargs):
                     ranks.append(np.linalg.matrix_rank(samples[i]))
 
-            if p == "max":
+            if p is "max":
                 # Get the maximum rank of the input matrices
                 p = int(max(ranks))
-            elif p == "min":
+            elif p is "min":
                 # Get the minimum rank of the input matrices
                 p = int(min(ranks))
             else:

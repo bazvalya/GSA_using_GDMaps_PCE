@@ -195,28 +195,33 @@ class ErrorEstimation:
         return np.round(eps_val, 7)
     
 
-
-def run_PCE_GSA_on_mainfold(p, data, x, num_runs, num_vars, n_keep, dist_obj, pce_max_degree=15, parsim=False):
+def run_PCE_GSA_on_mainfold(p, data, x, num_runs, num_params, n_keep, dist_obj, pce_max_degree=15, parsim=False):
     """Runs Global Sensitivity Analysis using PCE surrogate on manifold for each of runs"""   
-    n2 = data[0].shape[1]
     
+    n2 = data[0].shape[1]
+
     n_d_coord = n_keep
     
     # Arrays with Sobol indices
-    pce_total_Si = np.zeros((num_runs, num_vars, n_d_coord))
-    pce_first_Si = np.zeros((num_runs, num_vars, n_d_coord))
+    pce_total_Si = np.zeros((num_runs, num_params, n_d_coord))
+    pce_first_Si = np.zeros((num_runs, num_params, n_d_coord))
     
     # Arrays with generalised Sobol indices
-    pce_gto_Si = np.zeros((num_runs, num_vars))
-    pce_gfo_Si = np.zeros((num_runs, num_vars))
-    
+    pce_gto_Si = np.zeros((num_runs, num_params))
+    pce_gfo_Si = np.zeros((num_runs, num_params))
+
     evals_diff_runs  = []
     evecs_diff_runs  = []
     coord_diff_runs = []
     g_diff_runs = []
     
+    residuals_diff_runs = []
+    index_diff_runs = []
+
     pce_error_diff_runs = []
     
+    pce_mean_diff_runs = []
+    pce_std_diff_runs = []
 
     for i in range(num_runs):
         print('Run: ', i)
@@ -224,23 +229,38 @@ def run_PCE_GSA_on_mainfold(p, data, x, num_runs, num_vars, n_keep, dist_obj, pc
                                    int(np.sqrt(n2)), 
                                    int(np.sqrt(n2)))
 
-        # perform GDMAps
+        # Perform GDMAps
         start_time = time.time()
+        
+        if parsim:
+            g, coord, Grass, residuals, index, evals, evecs = GDMaps(data=data_all, 
+                                                                     n_evecs=20,
+                                                                     n_keep=n_keep,
+                                                                     parsim=parsim,
+                                                                     p=p).get()
+        
+            evals_diff_runs.append(evals)
+            evecs_diff_runs.append(evecs)
+            coord_diff_runs.append(coord)
+            g_diff_runs.append(g)
+            residuals_diff_runs.append(residuals)
+            index_diff_runs.append(index)
             
-        g, coord, Grass, evals, evecs = GDMaps(data=data_all, 
-                                               n_evecs=20,
-                                               n_keep=n_keep,
-                                               parsim=parsim,
-                                               p=p).get()
-
-        evals_diff_runs.append(evals)
-        evecs_diff_runs.append(evecs)
-        coord_diff_runs.append(coord)
-        g_diff_runs.append(g)
+        else:
+            g, coord, Grass, evals, evecs = GDMaps(data=data_all, 
+                                                   n_evecs=20,
+                                                   n_keep=n_keep,
+                                                   parsim=parsim,
+                                                   p=p).get()
+        
+            evals_diff_runs.append(evals)
+            evecs_diff_runs.append(evecs)
+            coord_diff_runs.append(coord)
+            g_diff_runs.append(g)
         
         print("--- GDMaps - %s seconds ---" % (time.time() - start_time))
         
-        # perform PCE on the manifold
+        # Perform PCE on the manifold
         start_time = time.time()
         pce, error = PceModel(x=x, 
                               g=g, 
@@ -252,13 +272,22 @@ def run_PCE_GSA_on_mainfold(p, data, x, num_runs, num_vars, n_keep, dist_obj, pc
         
         print('Error of PCE:', error)
         print("--- PCE surrogate - %s seconds ---" % (time.time() - start_time))
+        
+        # Get the mean, std, skewness, kurtosis of the model output
+        start_time = time.time()
+        mean_est, var_est = pce.get_moments(False) # skew_est, kurt_est
+        
+        pce_mean_diff_runs.append(mean_est)
+        pce_std_diff_runs.append(var_est)
+                
+        print("--- PCE estimate moments - %s seconds ---" % (time.time() - start_time))
 
         pce_to  = PceSensitivity(pce).calculate_total_order_indices()
         pce_fo  = PceSensitivity(pce).calculate_first_order_indices()
         pce_gto = PceSensitivity(pce).calculate_generalized_total_order_indices()
         pce_gfo = PceSensitivity(pce).calculate_generalized_first_order_indices()
 
-        for param in range(num_vars):
+        for param in range(num_responses):
             pce_total_Si[i, param, :] = pce_to[param]
             pce_first_Si[i, param, :] = pce_fo[param]
 
@@ -267,4 +296,6 @@ def run_PCE_GSA_on_mainfold(p, data, x, num_runs, num_vars, n_keep, dist_obj, pc
         
     return (pce_total_Si, pce_first_Si, pce_gto_Si, pce_gfo_Si,
             evals_diff_runs, evecs_diff_runs, coord_diff_runs, g_diff_runs,
-            pce_error_diff_runs)
+            residuals_diff_runs, index_diff_runs,
+            pce_error_diff_runs, 
+            pce_mean_diff_runs, pce_std_diff_runs)

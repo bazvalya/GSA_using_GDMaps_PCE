@@ -1,3 +1,55 @@
-# Global Sensitivity Analysis using Polynomial Chaos Expansion on the Grassmann Manifold
+# New Framework for Global Sensitivity Analysis with Polynomial Chaos Expansion on the Grassmann Manifold
 
- A new global sensitivity analysis (GSA) framework using Grassmannian diffusion maps (GDMaps) and polynomial chaos expansion (PCE)
+This Git repository accompanies the paper titled "Global Sensitivity Analysis using Polynomial Chaos Expansion on the Grassmann Manifold".
+
+## General Overview
+
+## Contents
+Files in the `notebooks` folder:
+
+- `GSA_results`
+- `input_data`
+- `pce_accuracy`
+- `plots`
+- `DeepABM_PCE-GSA.ipynb`
+- `DeepABM_SobolGSA.ipynb`
+- `GDMaps_PCE_LV.ipynb`
+- `GDMaps_unit_sphere.ipynb`
+
+`Snellius_DeepABM` folder is ... and contains:
+- `main_uq_no_interventions.py`
+- `model_uq_no_interventions.py`
+
+## Data
+To run with the original data, download it from [https://figshare.com/articles/dataset/data_zip/23515965](https://figshare.com/articles/dataset/output_data_zip/22216921) and add the unzipped folder named `output_data` into `notebooks` folder.
+
+## Prerequisites and Installation
+
+1. Clone the repository:
+```bash
+git clone git@github.com:bazvalya/GSA_using_GDMaps_PCE.git
+```
+and navigate to it on the local machine:
+```bash
+cd GSA_using_GDMaps_PCE
+```
+2. Create a virtual environment (Python 3.10):
+```bash
+python3.10 -m venv new_environment_name
+```
+and activate it with:
+```bash
+source new_environment_name/bin/activate
+```
+3. Install the required packages with:
+```bash
+pip install -r requirements.txt
+```
+
+## Development
+
+This repository is being actively developed. Our main objective is to offer a collection of reusable code that enables researchers to effortlessly replicate results and leverage our framework for global sensitivity analysis. Whether you are aiming to reproduce our findings or explore novel applications, this repository provides the necessary tools and resources to support your endeavors.
+
+## References 
+
+A significant portion of the code use in this repository stems from [GDM-PCE](https://github.com/katiana22/GDM-PCE).

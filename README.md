@@ -1,4 +1,4 @@
-# New Framework for Global Sensitivity Analysis with Polynomial Chaos Expansion on the Grassmann Manifold
+# A Framework for Global Sensitivity Analysis with Polynomial Chaos Expansion on the Grassmann Manifold
 
 This Git repository accompanies the paper titled "Global Sensitivity Analysis using Polynomial Chaos Expansion on the Grassmann Manifold".
 

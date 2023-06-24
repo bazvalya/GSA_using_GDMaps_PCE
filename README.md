@@ -52,4 +52,4 @@ This repository is being actively developed. Our main objective is to offer a co
 
 ## References 
 
-A significant portion of the code use in this repository stems from [GDM-PCE](https://github.com/katiana22/GDM-PCE).
+A substantial portion of our implementation stems from [GDM-PCE](https://github.com/katiana22/GDM-PCE). We express our gratitude to the contributors of the original repository for their valuable resources.

@@ -26,19 +26,19 @@ To run with the original data, download it from [https://figshare.com/articles/d
 ## Prerequisites and Installation
 
 1. Clone the repository:
-```bash
+```
 git clone git@github.com:bazvalya/GSA_using_GDMaps_PCE.git
 ```
 and navigate to it on the local machine:
-```bash
+```
 cd GSA_using_GDMaps_PCE
 ```
 2. Create a virtual environment (Python 3.10):
-```bash
+```
 python3.10 -m venv new_environment_name
 ```
 and activate it with:
-```bash
+```
 source new_environment_name/bin/activate
 ```
 3. Install the required packages with:

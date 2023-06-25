@@ -1,7 +1,5 @@
 # A Manifold Learning-Based Framework for Global Sensitivity Analysis
 
-This Git repository accompanies the "Global Sensitivity Analysis using Polynomial Chaos Expansion on the Grassmann Manifold" paper.
-
 This Git repository contains the code implementation for the "Global Sensitivity Analysis using Polynomial Chaos Expansion on the Grassmann Manifold" paper. The paper introduces a novel approach to global sensitivity analysis (GSA) that is specifically designed to address the challenges posed by models with diverse timescales, structural complexity, and other dynamics inherent in complex systems, such as agent-based models (ABMs).
 
 ## Table of contents

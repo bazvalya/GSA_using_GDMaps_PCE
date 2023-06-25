@@ -37,18 +37,17 @@ Traditional GSA techniques, including variance- and density-based approaches, ha
 A detailed overview of the proposed methodology can be found in [SI Section B.1](https://doi.org/10.5281/zenodo.8050579), and descriptions of the two models used to illustrate the application of the proposed framework and the corresponding setup used for evaluation are presented in [SI Sections B.2 and B.3](https://doi.org/10.5281/zenodo.8050579).
 
 ## Repository Contents
-
 - `GSA_GDM_PCE`: Contains the source code for the proposed method.
 - `notebooks`: Provides examples demonstrating the application of the method and includes the following files:
-  - `GSA_results`: Contains the resulting data from applying the framework on Lotka-Volterra (LV) model (in `LV` folder) and DeepABM COVID-19 (in `parsim` and `nonparsim` folders)
-  - `input_data`: Contains the input data of parameter combinations sampled with low-discrepancy sequence required for running the code.
-  - `pce_accuracy`: When assessing the accuracy of PCE, the resulting plots are saved here.
-  - `plots`: Contain all plots used in the paper (main text) and SI.
-  - `DeepABM_PCE-GSA.ipynb`: Jupyter notebook containing the application of the framework on DeepABM COVID-19.
-  - `DeepABM_SobolGSA.ipynb`: Jupyter notebook with GSA for DeepABM COVID-19 model employing conventional Sobol’ index calculation methods over multiple time steps.
-  - `GDMaps_PCE_LV.ipynb`: Jupyter notebook with the application of the proposed framework on LV model.
-  - `GDMaps_unit_sphere.ipynb`: Jupyter notebook containing a simple example illustrating GDMaps’ capability to capture intrinsic geometric structures following the example previously used by [Dos Santos et al.](https://arxiv.org/abs/2009.07547)
-- `Snellius_DeepABM`: Cannot be treated as part of a stand-alone repository and contains files used to write data for DeepABM COVID-19 together with [this repository](https://github.com/ayushchopra96/deepabm-covid).
+  - `GSA_results`: Contains the resulting data from applying the framework on the Lotka-Volterra (LV) model (located in the `LV` folder) and the DeepABM COVID-19 model (located in the `parsim` and `nonparsim` folders).
+  - `input_data`: Contains the input data of parameter combinations sampled with a low-discrepancy sequence, which is required for running the code.
+  - `pce_accuracy`: Contains the resulting plots generated when assessing the accuracy of the PCE.
+  - `plots`: Contains all plots used in the paper (main text) and Supplementary Information (SI).
+  - `DeepABM_PCE-GSA.ipynb`: Jupyter notebook demonstrating the application of the framework on the DeepABM COVID-19 model.
+  - `DeepABM_SobolGSA.ipynb`: Jupyter notebook demonstrating GSA for the DeepABM COVID-19 model using conventional Sobol' index calculation methods over multiple time steps.
+  - `GDMaps_PCE_LV.ipynb`: Jupyter notebook demonstrating the application of the proposed framework on the Lotka-Volterra (LV) model.
+  - `GDMaps_unit_sphere.ipynb`: Jupyter notebook containing a simple example illustrating GDMaps' capability to capture intrinsic geometric structures, following the example previously used by [Dos Santos et al.](https://arxiv.org/abs/2009.07547).
+- `Snellius_DeepABM`: This is not a stand-alone repository and contains files used to write data for the DeepABM COVID-19 model together with the [deepabm-covid](https://github.com/ayushchopra96/deepabm-covid.) repository.
 
 ## Data
 To run with the original data, download it from [https://figshare.com/articles/dataset/data_zip/23515965](https://figshare.com/articles/dataset/output_data_zip/22216921) and add the unzipped folder named `output_data` into `notebooks` folder. `DeepABM_SobolGSA.ipynb` in the `notebook` folder contains code for writing datafile from the original data.

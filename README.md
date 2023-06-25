@@ -37,16 +37,18 @@ Traditional GSA techniques, including variance- and density-based approaches, ha
 The detailed overview of the proposed methodology can be found in [SI Section B.1](https://doi.org/10.5281/zenodo.8050579), and descriptions of the two models used to illustrate the application of the proposed framework and the corresponding setup used for evaluation are presented in [SI Sections B.2 and B.3](https://doi.org/10.5281/zenodo.8050579).
 
 ## Repository Contents
-Files in the `notebooks` folder:
 
-- `GSA_results`
-- `input_data`
-- `pce_accuracy`
-- `plots`
-- `DeepABM_PCE-GSA.ipynb`
-- `DeepABM_SobolGSA.ipynb`
-- `GDMaps_PCE_LV.ipynb`
-- `GDMaps_unit_sphere.ipynb`
+- `GSA_GDM_PCE`: Contains the source code for implementing the proposed method.
+
+- `notebooks`: Provides examples demonstrating the application of the method and includes the following files:
+  - `GSA_results`: Contains data 
+  - `input_data`: Contains the input data of parameter combinations sampled with low-discrepancy sequence required for running the code.
+  - `pce_accuracy`: When assessing the accuracy of PCE, the resulting plots are saved here.
+  - `plots`: Contain all plots used in the paper (main text) and SI.
+  - `DeepABM_PCE-GSA.ipynb`
+  - `DeepABM_SobolGSA.ipynb`
+  - `GDMaps_PCE_LV.ipynb`
+  - `GDMaps_unit_sphere.ipynb`
 
 `Snellius_DeepABM` folder is ... and contains:
 - `main_uq_no_interventions.py`

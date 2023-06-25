@@ -45,13 +45,13 @@ A detailed overview of the proposed methodology can be found in [SI Section B.1]
   - `pce_accuracy`: When assessing the accuracy of PCE, the resulting plots are saved here.
   - `plots`: Contain all plots used in the paper (main text) and SI.
   - `DeepABM_PCE-GSA.ipynb`: Jupyter notebook containing the application of the framework on DeepABM COVID-19.
-  - `DeepABM_SobolGSA.ipynb`: Jupyter notebook with GSA for DeepABM COVID-19 model employing conventional Sobol’ index calculation methods over multiple time steps. Contains code for writing datafile from the original data.
+  - `DeepABM_SobolGSA.ipynb`: Jupyter notebook with GSA for DeepABM COVID-19 model employing conventional Sobol’ index calculation methods over multiple time steps.
   - `GDMaps_PCE_LV.ipynb`: Jupyter notebook with the application of the proposed framework on LV model.
   - `GDMaps_unit_sphere.ipynb`: Jupyter notebook containing a simple example illustrating GDMaps’ capability to capture intrinsic geometric structures following the example previously used by [Dos Santos et al.](https://arxiv.org/abs/2009.07547)
 - `Snellius_DeepABM`: Cannot be treated as part of a stand-alone repository and contains files used to write data for DeepABM COVID-19 together with [this repository](https://github.com/ayushchopra96/deepabm-covid).
 
 ## Data
-To run with the original data, download it from [https://figshare.com/articles/dataset/data_zip/23515965](https://figshare.com/articles/dataset/output_data_zip/22216921) and add the unzipped folder named `output_data` into `notebooks` folder.
+To run with the original data, download it from [https://figshare.com/articles/dataset/data_zip/23515965](https://figshare.com/articles/dataset/output_data_zip/22216921) and add the unzipped folder named `output_data` into `notebooks` folder. `DeepABM_SobolGSA.ipynb` in the `notebook` folder contains code for writing datafile from the original data.
 
 ## Getting Started
 

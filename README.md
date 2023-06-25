@@ -8,7 +8,7 @@ This Git repository contains the code implementation for the "Global Sensitivity
 - [Methodology](#methodology)
 - [Repository Contents](#repository-contents)
 - [Data](#data)
-- [Prerequisites and installation](#prerequisites-and-installation)
+- [Getting Started](#getting-started)
 - [Development](#development)
 - [References ](#references)
 
@@ -55,7 +55,7 @@ Files in the `notebooks` folder:
 ## Data
 To run with the original data, download it from [https://figshare.com/articles/dataset/data_zip/23515965](https://figshare.com/articles/dataset/output_data_zip/22216921) and add the unzipped folder named `output_data` into `notebooks` folder.
 
-## Prerequisites and installation
+## Getting Started
 
 1. Clone the repository:
 ```

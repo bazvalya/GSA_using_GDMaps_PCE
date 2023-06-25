@@ -1,20 +1,39 @@
-# A Framework for Global Sensitivity Analysis with Polynomial Chaos Expansion on the Grassmann Manifold
+# A Manifold Learning-Based Framework for Global Sensitivity Analysis
 
 This Git repository accompanies the "Global Sensitivity Analysis using Polynomial Chaos Expansion on the Grassmann Manifold" paper.
 
+This Git repository contains the code implementation for the "Global Sensitivity Analysis using Polynomial Chaos Expansion on the Grassmann Manifold" paper. The paper introduces a novel approach to global sensitivity analysis (GSA) that is specifically designed to address the challenges posed by models with diverse timescales, structural complexity, and other dynamics inherent in complex systems, such as agent-based models (ABMs).
+
 ## Table of contents
-- [General overview](#general-overview)
-- [Repository contents](#repository-contents)
+- [Abstract Summary](#abstract-summary)
+- [Key Features](#key-features)
+- [Repository Contents](#repository-contents)
 - [Data](#data)
 - [Prerequisites and installation](#prerequisites-and-installation)
 - [Development](#development)
 - [References ](#references)
 
-## General overview
+## Abstract Summary
+Traditional GSA techniques, including variance- and density-based approaches, have limitations when it comes to comprehensively understanding temporal dynamics in complex spatiotemporal systems within the context of complex systems theory. To overcome these limitations, the proposed method combines manifold learning techniques with polynomial chaos expansion (PCE) to assess parameter sensitivities. By reducing the dimensionality of the data using Grassmannian diffusion maps and mapping stochastic input parameters to diffusion coordinates in the reduced space, the method provides a more comprehensive estimation of sensitivities by considering multiple outputs and their entire trajectories.
 
+## Key Features
 
+1. **Benefits of the proposed GSA method:** 
+  - The method provides a more informative quantification of parametric sensitivities by:
+    - Aggregating multiple outputs and their entire trajectories for a comprehensive analysis.
+    - Reducing the dimensionality of the data using Grassmannian Diffusion Maps (GDMaps) for improved understanding.
+  - The framework is designed to handle non-linearities and capture interaction effects in agent-based models (ABMs) and complex systems.
+2. **Successful application:**
+  - The method has been successfully applied to both a classic Lotka-Volterra dynamical system and a large-scale ABM model.
+  - Application of the framework revealed important parameter relations and relative influences on the model outputs.
+3. **Influence of hyper-parameters:**
+  - Sensitivity measures are affected by the choice of Grassmann manifold dimension and maximal polynomial degree.
+  - Fine-tuning these hyper-parameters is recommended.
+4. **Potential impacts:**
+  - Deepening the understanding of systems with complex spatiotemporal dynamics by providing insights into parameter sensitivities.
+  - Expanding the application of manifold-based approaches in ABMs and other complex systems, enabling more comprehensive analyses.
 
-## Repository contents
+## Repository Contents
 Files in the `notebooks` folder:
 
 - `GSA_results`

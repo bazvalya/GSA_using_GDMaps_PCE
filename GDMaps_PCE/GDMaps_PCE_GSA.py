@@ -28,13 +28,12 @@ class GDMaps:
     n_evecs must be greater than n_keep
     """
 
-    def __init__(self, data, n_evecs, n_keep, p, parsim=True, verbose=False):
+    def __init__(self, data, n_evecs, n_keep, p, parsim=True):
         self.data = data
         self.n_evecs = n_evecs
         self.n_keep = n_keep
         self.p = p
         self.parsim = parsim
-        self.verbose = verbose
 
     def get(self):
         Gr = Grassmann(distance_method=Grassmann.grassmann_distance, 

@@ -4,7 +4,11 @@ This Git repository accompanies the "Global Sensitivity Analysis using Polynomia
 
 ## Table of contents
 - [General overview](#general-overview)
-
+- [Repository contents](#repository-contents)
+- [Data](#data)
+- [Prerequisites and installation](#prerequisites-and-installation)
+- [Development](#development)
+- [References ](#references)
 
 ## General overview
 

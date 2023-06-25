@@ -7,6 +7,7 @@ This Git repository contains the code implementation for the "Global Sensitivity
 ## Table of contents
 - [Abstract Summary](#abstract-summary)
 - [Key Features](#key-features)
+- [Methodology](#methodology)
 - [Repository Contents](#repository-contents)
 - [Data](#data)
 - [Prerequisites and installation](#prerequisites-and-installation)
@@ -32,6 +33,10 @@ Traditional GSA techniques, including variance- and density-based approaches, ha
 4. **Potential impacts:**
   - Deepening the understanding of systems with complex spatiotemporal dynamics by providing insights into parameter sensitivities.
   - Expanding the application of manifold-based approaches in ABMs and other complex systems, enabling more comprehensive analyses.
+
+## Methodology and Application Setup
+
+The detailed overview of the proposed methodology can be found in [SI Section B.1](https://doi.org/10.5281/zenodo.8050579), and descriptions of the two models used to illustrate the application of the proposed framework and the corresponding setup used for evaluation are presented in [SI Sections B.2 and B.3](https://doi.org/10.5281/zenodo.8050579).
 
 ## Repository Contents
 Files in the `notebooks` folder:

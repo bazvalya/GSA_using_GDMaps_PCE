@@ -4,4 +4,6 @@ pandas==1.5.2
 matplotlib==3.5.3
 mycolorpy
 SALib==1.4.6.1
-
+UQpy==4.0.5
+scipy==1.10.0
+sklearn==1.2.0

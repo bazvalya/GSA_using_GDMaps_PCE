@@ -6,7 +6,6 @@ import os, subprocess
 import random
 
 import matplotlib.pyplot as plt
-import matplotlib as mpl
 
 from UQpy.surrogates import *
 from UQpy.sensitivity import *

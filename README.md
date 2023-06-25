@@ -1,10 +1,16 @@
 # A Framework for Global Sensitivity Analysis with Polynomial Chaos Expansion on the Grassmann Manifold
 
-This Git repository accompanies the paper titled "Global Sensitivity Analysis using Polynomial Chaos Expansion on the Grassmann Manifold".
+This Git repository accompanies the "Global Sensitivity Analysis using Polynomial Chaos Expansion on the Grassmann Manifold" paper.
 
-## General Overview
+## Table of contents
+- [General overview](#general-overview)
 
-## Contents
+
+## General overview
+
+
+
+## Repository contents
 Files in the `notebooks` folder:
 
 - `GSA_results`
@@ -23,7 +29,7 @@ Files in the `notebooks` folder:
 ## Data
 To run with the original data, download it from [https://figshare.com/articles/dataset/data_zip/23515965](https://figshare.com/articles/dataset/output_data_zip/22216921) and add the unzipped folder named `output_data` into `notebooks` folder.
 
-## Prerequisites and Installation
+## Prerequisites and installation
 
 1. Clone the repository:
 ```
@@ -48,7 +54,7 @@ pip install -r requirements.txt
 
 ## Development
 
-This repository is being actively developed. Our main objective is to offer a collection of reusable code that enables researchers to effortlessly replicate results and leverage our framework for global sensitivity analysis. Whether you are aiming to reproduce our findings or explore novel applications, this repository provides the necessary tools and resources to support your endeavors.
+This repository is being actively developed. Our main objective is to offer a collection of reusable code that enables researchers to replicate results effortlessly and leverage our framework for global sensitivity analysis. Whether you are aiming to reproduce our findings or explore novel applications, this repository provides the necessary tools and resources to support your endeavours.
 
 ## References 
 

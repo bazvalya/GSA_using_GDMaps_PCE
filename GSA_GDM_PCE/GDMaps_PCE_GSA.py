@@ -76,13 +76,14 @@ class PceModel:
     Constructs a PCE surrogate on the Grassmannian diffusion manifold.
     """
 
-    def __init__(self, x, g, dist_obj, max_degree, regression='OLS', verbose=False):
+    def __init__(self, x, g, dist_obj, max_degree, regression='OLS', MAE=False, verbose=False):
         self.x = x
         self.g = g
         self.dist_obj = dist_obj
         self.max_degree = max_degree
         self.regression = regression
         self.verbose = verbose
+        self.MAE = MAE
 
     def get(self):
 
@@ -140,7 +141,14 @@ class PceModel:
                 plt.savefig('pce_accuracy/pce_{}.png'.format(i), bbox_inches='tight')
                 plt.show()
 
-        return pce, error_val
+        if self.MAE:
+            MAE_val = MeanAbsoluteError(surr_object=pce).validation(x_test, g_test)
+
+            return pce, MAE_val
+
+        else:
+
+            return pce, error_val
 
        
 
@@ -191,7 +199,61 @@ class ErrorEstimation:
         if y.ndim == 1 or y.shape[1] == 1:
             eps_val = float(eps_val)
 
-        return np.round(eps_val, 7)
+        return np.round(eps_val, 8)
+
+
+class MeanAbsoluteError:
+    """
+    Class for calculating the mean absolute error of a PCE surrogate, based on a validation
+    dataset. Used in PceModel
+
+    **Inputs:**
+
+    * **surr_object** ('class'):
+        Object that defines the surrogate model.
+
+    **Methods:**
+    """
+
+    def __init__(self, surr_object):
+        self.surr_object = surr_object
+
+    def validation(self, x, y):
+        """
+        Returns the the mean absolute error (MAE) between the PCE’s predictions 
+        and the true model outputs.
+
+        **Inputs:**
+
+        * **x** (`ndarray`):
+            `ndarray` containing the samples of the validation dataset.
+
+        * **y** (`ndarray`):
+            `ndarray` containing model evaluations for the validation dataset.
+
+        **Outputs:**
+
+        * **eps_val** (`float`)
+            Validation error.
+
+        """
+        if y.ndim == 1 or y.shape[1] == 1:
+            y = y.reshape(-1, 1)
+
+        n_samples = x.shape[0]
+
+        y_val = self.surr_object.predict(x)
+        # print("y_val:", y_val)
+        # print("y:", y)
+        errors = np.abs(y - y_val)
+        # print("errors:", errors)
+        MAE_val = (np.linalg.norm(errors, 1, axis=0) / n_samples)
+        # print("MAE_val:", MAE_val)
+        # print("Col 2:", errors[:, 1])
+        # print("Sum of col 2:", np.sum(errors[:, 1]))
+        # print("Sum of col 2 divided by N:", np.sum(errors[:, 1])/n_samples)
+
+        return np.round(MAE_val, 8)
     
 
 def run_PCE_GSA_on_mainfold(p, data, x, num_runs, num_params, n_keep, dist_obj, pce_max_degree=15, parsim=False):
@@ -286,7 +348,7 @@ def run_PCE_GSA_on_mainfold(p, data, x, num_runs, num_params, n_keep, dist_obj, 
         pce_gto = PceSensitivity(pce).calculate_generalized_total_order_indices()
         pce_gfo = PceSensitivity(pce).calculate_generalized_first_order_indices()
 
-        for param in range(num_responses):
+        for param in range(num_params):
             pce_total_Si[i, param, :] = pce_to[param]
             pce_first_Si[i, param, :] = pce_fo[param]
 
